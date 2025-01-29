@@ -1,0 +1,123 @@
+# Re-create the entire HTML content.
+html_content = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine for Wiktoria</title>
+    <style>
+        body {
+            background-color: #fff0f5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+        }
+        .letter {
+            background: #ffcccb;
+            border: 2px solid #ff69b4;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            position: relative;
+        }
+        .letter h1 {
+            color: #ff1493;
+            font-size: 24px;
+            margin: 0;
+        }
+        .flowers {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .flowers img {
+            width: 60px;
+            height: auto;
+        }
+        .hearts {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .hearts img {
+            width: 40px;
+            height: auto;
+        }
+        .yes-buttons {
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+        }
+        .yes-buttons button {
+            background: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            animation: pop 0.5s ease;
+        }
+        @keyframes pop {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="letter" onclick="showMessage()">
+            <div class="flowers">
+                <img src="https://i.imgur.com/O7Q9fF5.png" alt="Flowers">
+            </div>
+            <h1>For Wiktoria</h1>
+            <div class="hearts">
+                <img src="https://i.imgur.com/3ZVa3Kg.png" alt="Hearts">
+            </div>
+        </div>
+        <div class="yes-buttons" id="yesButtons">
+            <!-- Buttons will be dynamically generated -->
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.querySelector('.letter').style.display = 'none';
+            const buttonsContainer = document.getElementById('yesButtons');
+            buttonsContainer.style.display = 'flex';
+            for (let i = 0; i < 50; i++) {
+                const button = document.createElement('button');
+                button.textContent = 'Yes';
+                buttonsContainer.appendChild(button);
+            }
+        }
+    </script>
+</body>
+</html>
+"""
+
+# Save the HTML file.
+file_path = "/mnt/data/Valentine_For_Wiktoria.html"
+with open(file_path, "w") as file:
+    file.write(html_content)
+
+file_path
